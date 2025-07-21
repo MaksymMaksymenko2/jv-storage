@@ -4,13 +4,17 @@ import core.basesyntax.Storage;
 
 public class Main {
     public static void main(String[] args) {
-        Storage<Integer, Box> storage = new StorageImpl<>();
-        Box box = new Box();
+        Storage<Integer, Box<String>> storage = new StorageImpl<>();
+
+        Box<String> box = new Box<>("something");
         storage.put(22, box);
-        Box value = storage.get(22);
+
+        Box<String> value = storage.get(22);
         System.out.println(value);
+
         System.out.println("Size: " + storage.size());
-        Box newBox = new Box();
+
+        Box<String> newBox = new Box<>("new content");
         storage.put(22, newBox);
         System.out.println(storage.get(22));
         System.out.println("Size: " + storage.size());
